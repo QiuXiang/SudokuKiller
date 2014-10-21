@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="app_name">解数独</string>
-    <string name="text_calcuate">计算</string>
-    <string name="text_clear">重置</string>
-</resources>
