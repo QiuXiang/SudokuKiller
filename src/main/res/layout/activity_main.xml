@@ -1,37 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
   xmlns:android="http://schemas.android.com/apk/res/android"
   android:background="@color/background"
   android:layout_width="match_parent"
   android:layout_height="match_parent">
-
   <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
-
     <GridView
       android:id="@+id/gridview_sudoku"
       android:numColumns="9"
       android:layout_width="match_parent"
       android:layout_height="wrap_content">
     </GridView>
-
     <LinearLayout
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:layout_marginTop="20dp"
       android:gravity="center">
       <Button
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginRight="20dp"
         android:onClick="clear"
-        android:background="@drawable/clear"/>
+        style="@style/button.clear"/>
       <Button
-        android:layout_width="50dp"
-        android:layout_height="50dp"
         android:onClick="submit"
-        android:background="@drawable/run"/>
+        style="@style/button.run"/>
     </LinearLayout>
   </LinearLayout>
 </RelativeLayout>

@@ -4,8 +4,9 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.GridView;
+import android.support.v7.app.ActionBarActivity;
 
-public class MainActivity extends Activity {
+public class MainActivity extends ActionBarActivity {
   private SudokuKiller sudoku = new SudokuKiller();
   private GridView gridView;
 
