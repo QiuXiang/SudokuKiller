@@ -1,60 +1,128 @@
 package com.sudokukiller;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class SudokuKiller {
-  public static int[][] kill(int[][] sudokTable) {
-    kill(sudokTable, 0, 0);
-    return sudokTable;
+  public static final List<Integer> NUMBERS = new ArrayList<Integer>(Arrays.asList(
+    new Integer[]{1, 2, 3, 4, 5, 6, 7, 8, 9}));
+  public static final int SIZE = 81;
+  public static final int EMPTY = 0;
+  private int[] items = new int[SIZE];
+
+  public SudokuKiller() {
+    clear();
   }
 
-  public static boolean kill(int[][] sudokuTable, int y, int x) {
-    for(; y < 9; y++) {
-      for(; x < 9; x++) {
-        if(sudokuTable[y][x] == 0) {
-          for(int n = 1; n <= 9; n++) {
-            if(!getUsedNumbers(sudokuTable, y, x).contains(n)) {
-              sudokuTable[y][x] = n;
-              if (kill(sudokuTable, y, x + 1))
-                return true;
+  public SudokuKiller(int[] items) {
+    setItems(items);
+  }
+
+  public void clear() {
+    for (int i = 0; i < SIZE; i++) {
+      items[i] = 0;
+    }
+  }
+
+  public int[] getItems() {
+    return items;
+  }
+
+  public void setItems(int[] items) {
+    this.items = items;
+  }
+
+  public int getItem(int index) {
+    return items[index];
+  }
+
+  public int getItem(int row, int col) {
+    return items[toIndex(row, col)];
+  }
+
+  public void setItem(int index, int item) {
+    items[index] = item;
+  }
+
+  public void setItem(int row, int col, int item) {
+    items[toIndex(row, col)] = item;
+  }
+
+  public List<Integer> getUseds(int index) {
+    return getUseds(toRow(index), toCol(index));
+  }
+
+  private ArrayList<Integer> getUseds(int row, int col) {
+    ArrayList<Integer> useds = new ArrayList<Integer>(NUMBERS);
+    useds.removeAll(getUnuseds(row, col));
+    return useds;
+  }
+
+  public ArrayList<Integer> getUnuseds(int index) {
+    return getUnuseds(toRow(index), toCol(index));
+  }
+
+  public ArrayList<Integer> getUnuseds(int row, int col) {
+    ArrayList<Integer> unuseds = new ArrayList<Integer>(NUMBERS);
+
+    for (int i = 0; i < 9; i++) {
+      unuseds.remove((Integer) getItem(row, i));
+      unuseds.remove((Integer) getItem(i, col));
+    }
+
+    int row_offset = row / 3 * 3;
+    int col_offset = col / 3 * 3;
+    for (int i = 0; i < 3; i++) {
+      for (int j = 0; j < 3; j++) {
+        unuseds.remove((Integer) getItem(row_offset + i, col_offset + j));
+      }
+    }
+
+    return unuseds;
+  }
+
+  public boolean isEmpty(int index) {
+    return getItem(index) == EMPTY;
+  }
+
+  public boolean isEmpty(int row, int col) {
+    return isEmpty(toIndex(row, col));
+  }
+
+  public boolean fill() {
+    return fill(0, 0);
+  }
+
+  private boolean fill(int row, int col) {
+    for(; row < 9; row++) {
+      for(; col < 9; col++) {
+        if(isEmpty(row, col)) {
+          for (int item : getUnuseds(row, col)) {
+            setItem(row, col, item);
+            if (fill(row, col + 1)) {
+              return true;
             }
           }
-          sudokuTable[y][x] = 0;
+          setItem(row, col, EMPTY);
           return false;
         }
       }
-      x = 0;
+      col = 0;
     }
     return true;
   }
 
-  public static List<Integer> getUsedNumbers(int[][] sudokuTable, int y, int x) {
-    List<Integer> list = new ArrayList<Integer>();
+  public static int toRow(int index) {
+    return index / 9;
+  }
 
-    for (int i = 0; i < 9; i++) {
-      int number = sudokuTable[y][i];
-      if (number != 0) {
-        list.add(number);
-      }
+  public static int toCol(int index) {
+    return index % 9;
+  }
 
-      number = sudokuTable[i][x];
-      if (number != 0 && !list.contains(number)) {
-        list.add(number);
-      }
-    }
-
-    int m = y / 3 * 3;
-    int n = x / 3 * 3;
-    for (int i = 0; i < 3; i++) {
-      for (int j = 0; j < 3; j++) {
-        int number = sudokuTable[m + i][n + j];
-        if (number != 0 && !list.contains(number)) {
-          list.add(number);
-        }
-      }
-    }
-
-    return list;
+  public static int toIndex(int row, int col) {
+    return row * 9 + col;
   }
 }
+
