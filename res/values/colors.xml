@@ -1,6 +1,6 @@
 <resources>
   <color name="background">#2c3e50</color>
-  <color name="item_bg">#ffffff</color>
-  <color name="item_bg_darker">#f8f8f8</color>
+  <color name="item_background">#ffffff</color>
+  <color name="item_background_darker">#f8f8f8</color>
   <color name="item_border">#f0f0f0</color>
 </resources>

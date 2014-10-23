@@ -8,11 +8,10 @@ import android.widget.AdapterView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class ItemClickListener implements OnItemClickListener {
-  public String[] createItems(List<Integer> unuseds) {
-    List<String> items = new ArrayList<String>();
+  public String[] createItems(ArrayList<Integer> unuseds) {
+    ArrayList<String> items = new ArrayList<String>();
     items.add("");
 
     for (int item : unuseds) {

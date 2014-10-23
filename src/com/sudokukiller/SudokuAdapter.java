@@ -9,7 +9,7 @@ import android.widget.TextView;
 public class SudokuAdapter extends BaseAdapter {
   public SudokuKiller sudoku;
 
-  SudokuAdapter(SudokuKiller sudoku) {
+  public SudokuAdapter(SudokuKiller sudoku) {
     this.sudoku = sudoku;
   }
 

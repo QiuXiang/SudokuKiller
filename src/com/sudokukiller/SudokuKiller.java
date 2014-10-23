@@ -2,10 +2,9 @@ package com.sudokukiller;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 public class SudokuKiller {
-  public static final List<Integer> NUMBERS = new ArrayList<Integer>(Arrays.asList(
+  public static final ArrayList<Integer> NUMBERS = new ArrayList<Integer>(Arrays.asList(
     new Integer[]{1, 2, 3, 4, 5, 6, 7, 8, 9}));
   public static final int SIZE = 81;
   public static final int EMPTY = 0;
@@ -49,7 +48,7 @@ public class SudokuKiller {
     items[toIndex(row, col)] = item;
   }
 
-  public List<Integer> getUseds(int index) {
+  public ArrayList<Integer> getUseds(int index) {
     return getUseds(toRow(index), toCol(index));
   }
 

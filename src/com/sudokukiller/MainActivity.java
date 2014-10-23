@@ -3,7 +3,7 @@ package com.sudokukiller;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.*;
+import android.widget.GridView;
 
 public class MainActivity extends Activity {
   private SudokuKiller sudoku = new SudokuKiller();
