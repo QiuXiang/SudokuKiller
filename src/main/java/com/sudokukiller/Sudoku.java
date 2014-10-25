@@ -3,37 +3,21 @@ package com.sudokukiller;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class SudokuKiller {
+public class Sudoku {
   public static final ArrayList<Integer> NUMBERS = new ArrayList<Integer>(
     Arrays.asList(new Integer[]{1, 2, 3, 4, 5, 6, 7, 8, 9}));
   public static final int SIZE = 81;
   public static final int EMPTY = 0;
-  private int[] items = new int[SIZE];
+  public int[] items = new int[SIZE];
 
-  public SudokuKiller() {
+  public Sudoku() {
     clear();
-  }
-
-  public SudokuKiller(int[] items) {
-    setItems(items);
   }
 
   public void clear() {
     for (int i = 0; i < SIZE; i++) {
       items[i] = 0;
     }
-  }
-
-  public int[] getItems() {
-    return items;
-  }
-
-  public void setItems(int[] items) {
-    this.items = items;
-  }
-
-  public int getItem(int index) {
-    return items[index];
   }
 
   public int getItem(int row, int col) {
@@ -46,16 +30,6 @@ public class SudokuKiller {
 
   public void setItem(int row, int col, int item) {
     items[toIndex(row, col)] = item;
-  }
-
-  public ArrayList<Integer> getUseds(int index) {
-    return getUseds(toRow(index), toCol(index));
-  }
-
-  private ArrayList<Integer> getUseds(int row, int col) {
-    ArrayList<Integer> useds = new ArrayList<Integer>(NUMBERS);
-    useds.removeAll(getUnuseds(row, col));
-    return useds;
   }
 
   public ArrayList<Integer> getUnuseds(int index) {
@@ -82,7 +56,7 @@ public class SudokuKiller {
   }
 
   public boolean isEmpty(int index) {
-    return getItem(index) == EMPTY;
+    return items[index] == EMPTY;
   }
 
   public boolean isEmpty(int row, int col) {

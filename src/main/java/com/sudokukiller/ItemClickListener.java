@@ -23,7 +23,7 @@ public class ItemClickListener implements OnItemClickListener {
 
   @Override
   public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-    final SudokuKiller sudoku = ((SudokuAdapter) adapterView.getAdapter()).sudoku;
+    final Sudoku sudoku = ((SudokuAdapter) adapterView.getAdapter()).sudoku;
     final TextView textView = (TextView) view.findViewWithTag(i);
     final String[] items = createItems(sudoku.getUnuseds(i));
     final int index = i;

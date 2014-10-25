@@ -8,7 +8,7 @@ import android.widget.GridView;
 import android.support.v7.app.ActionBarActivity;
 
 public class MainActivity extends ActionBarActivity {
-  private SudokuKiller sudoku = new SudokuKiller();
+  private Sudoku sudoku = new Sudoku();
   private GridView gridView;
 
   @Override
@@ -21,13 +21,13 @@ public class MainActivity extends ActionBarActivity {
   @Override
   protected void onRestoreInstanceState(Bundle savedInstanceState) {
     super.onRestoreInstanceState(savedInstanceState);
-    sudoku.setItems(savedInstanceState.getIntArray("sudoku_items"));
+    sudoku.items = savedInstanceState.getIntArray("sudoku.items");
   }
 
   @Override
   protected void onSaveInstanceState(Bundle savedInstanceState) {
     super.onSaveInstanceState(savedInstanceState);
-    savedInstanceState.putIntArray("sudoku_items", sudoku.getItems());
+    savedInstanceState.putIntArray("sudoku.items", sudoku.items);
   }
 
   @Override

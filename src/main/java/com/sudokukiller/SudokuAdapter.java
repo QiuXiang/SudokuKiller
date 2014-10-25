@@ -7,20 +7,20 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 public class SudokuAdapter extends BaseAdapter {
-  public SudokuKiller sudoku;
+  public Sudoku sudoku;
 
-  public SudokuAdapter(SudokuKiller sudoku) {
+  public SudokuAdapter(Sudoku sudoku) {
     this.sudoku = sudoku;
   }
 
   @Override
   public int getCount() {
-    return SudokuKiller.SIZE;
+    return Sudoku.SIZE;
   }
 
   @Override
   public Object getItem(int i) {
-    return sudoku.getItem(i);
+    return sudoku.items[i];
   }
 
   @Override
@@ -39,10 +39,10 @@ public class SudokuAdapter extends BaseAdapter {
       if (sudoku.isEmpty(i)) {
         textView.setText("");
       } else {
-        textView.setText(Integer.toString(sudoku.getItem(i)));
+        textView.setText(Integer.toString(sudoku.items[i]));
       }
 
-      if ((SudokuKiller.toRow(i) / 3 + SudokuKiller.toCol(i) / 3) % 2 == 0) {
+      if ((Sudoku.toRow(i) / 3 + Sudoku.toCol(i) / 3) % 2 == 0) {
         textView.setBackgroundResource(R.drawable.item);
       } else {
         textView.setBackgroundResource(R.drawable.item_darker);
