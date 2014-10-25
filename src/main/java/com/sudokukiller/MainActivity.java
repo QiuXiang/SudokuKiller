@@ -1,7 +1,8 @@
 package com.sudokukiller;
 
-import android.app.Activity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.GridView;
 import android.support.v7.app.ActionBarActivity;
@@ -29,6 +30,12 @@ public class MainActivity extends ActionBarActivity {
     savedInstanceState.putIntArray("sudoku_items", sudoku.getItems());
   }
 
+  @Override
+  public boolean onCreateOptionsMenu(Menu menu) {
+    getMenuInflater().inflate(R.menu.main, menu);
+    return true;
+  }
+
   public void createGridView() {
     gridView = (GridView) findViewById(R.id.gridview_sudoku);
     gridView.setAdapter(new SudokuAdapter(sudoku));
@@ -40,7 +47,7 @@ public class MainActivity extends ActionBarActivity {
     gridView.setAdapter(gridView.getAdapter());
   }
 
-  public void clear(View view) {
+  public void clear(MenuItem item) {
     sudoku.clear();
     gridView.setAdapter(gridView.getAdapter());
   }
