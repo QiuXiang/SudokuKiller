@@ -1,0 +1,24 @@
+buildscript {
+  repositories {
+    jcenter()
+  }
+  dependencies {
+    classpath 'com.android.tools.build:gradle:0.12.2'
+  }
+}
+
+apply plugin: 'com.android.application'
+
+repositories {
+  jcenter()
+}
+
+android {
+  compileSdkVersion 19
+  buildToolsVersion "19.1.0"
+}
+
+dependencies {
+  compile fileTree(dir: 'libs', include: ['*.jar'])
+  compile 'com.android.support:appcompat-v7:19.0.0'
+}
