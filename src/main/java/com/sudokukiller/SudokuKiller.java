@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class SudokuKiller {
-  public static final ArrayList<Integer> NUMBERS = new ArrayList<Integer>(Arrays.asList(
-    new Integer[]{1, 2, 3, 4, 5, 6, 7, 8, 9}));
+  public static final ArrayList<Integer> NUMBERS = new ArrayList<Integer>(
+    Arrays.asList(new Integer[]{1, 2, 3, 4, 5, 6, 7, 8, 9}));
   public static final int SIZE = 81;
   public static final int EMPTY = 0;
   private int[] items = new int[SIZE];
