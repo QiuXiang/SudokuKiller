@@ -1,18 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
   xmlns:android="http://schemas.android.com/apk/res/android"
-  android:background="@color/primary"
-  android:layout_width="match_parent"
-  android:layout_height="match_parent">
+  style="@style/SudokuLayout">
 
   <GridView
     android:id="@+id/gridview_sudoku"
-    android:numColumns="9"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-  </GridView>
+    style="@style/SudokuGridView"/>
 
   <Button
     android:onClick="submit"
-    style="@style/button"/>
+    style="@style/SudokuKillerButton"/>
 </RelativeLayout>
