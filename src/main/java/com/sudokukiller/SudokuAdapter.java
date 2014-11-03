@@ -43,9 +43,9 @@ public class SudokuAdapter extends BaseAdapter {
       }
 
       if ((Sudoku.toRow(i) / 3 + Sudoku.toCol(i) / 3) % 2 == 0) {
-        textView.setBackgroundResource(R.drawable.item);
+        textView.setBackgroundResource(R.drawable.sudoku_item);
       } else {
-        textView.setBackgroundResource(R.drawable.item_darker);
+        textView.setBackgroundResource(R.drawable.sudoku_item_darker);
       }
 
       return textView;
