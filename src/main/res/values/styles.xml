@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <style name="button">
-    <item name="android:layout_width">50dp</item>
-    <item name="android:layout_height">50dp</item>
-  </style>
-  <style name="button.play">
+    <item name="android:layout_width">48dp</item>
+    <item name="android:layout_height">48dp</item>
     <item name="android:background">@drawable/run</item>
+    <item name="android:layout_marginTop">16dp</item>
+    <item name="android:layout_centerHorizontal">true</item>
+    <item name="android:layout_below">@+id/gridview_sudoku</item>
   </style>
 </resources>
