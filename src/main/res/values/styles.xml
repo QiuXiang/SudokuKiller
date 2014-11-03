@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
   <style name="SudokuKillerButton">
     <item name="android:layout_width">48dp</item>
     <item name="android:layout_height">48dp</item>
@@ -8,12 +9,14 @@
     <item name="android:layout_centerHorizontal">true</item>
     <item name="android:layout_below">@+id/gridview_sudoku</item>
   </style>
+
   <style name="SudokuGridView">
     <item name="android:layout_width">match_parent</item>
     <item name="android:layout_height">wrap_content</item>
     <item name="android:numColumns">9</item>
     <item name="android:background">@color/item_background</item>
   </style>
+
   <style name="SudokuLayout">
     <item name="android:layout_width">match_parent</item>
     <item name="android:layout_height">match_parent</item>

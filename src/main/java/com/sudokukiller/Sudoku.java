@@ -7,11 +7,23 @@ public class Sudoku {
   public static final ArrayList<Integer> NUMBERS = new ArrayList<Integer>(
     Arrays.asList(new Integer[]{1, 2, 3, 4, 5, 6, 7, 8, 9}));
   public static final int SIZE = 81;
-  public static final int EMPTY = 0;
   public int[] items = new int[SIZE];
+  public static final int EMPTY = 0;
 
   public Sudoku() {
     clear();
+  }
+
+  public static int toRow(int index) {
+    return index / 9;
+  }
+
+  public static int toCol(int index) {
+    return index % 9;
+  }
+
+  public static int toIndex(int row, int col) {
+    return row * 9 + col;
   }
 
   public void clear() {
@@ -68,9 +80,9 @@ public class Sudoku {
   }
 
   private boolean fill(int row, int col) {
-    for(; row < 9; row++) {
-      for(; col < 9; col++) {
-        if(isEmpty(row, col)) {
+    for (; row < 9; row++) {
+      for (; col < 9; col++) {
+        if (isEmpty(row, col)) {
           for (int item : getUnuseds(row, col)) {
             setItem(row, col, item);
             if (fill(row, col + 1)) {
@@ -84,18 +96,6 @@ public class Sudoku {
       col = 0;
     }
     return true;
-  }
-
-  public static int toRow(int index) {
-    return index / 9;
-  }
-
-  public static int toCol(int index) {
-    return index % 9;
-  }
-
-  public static int toIndex(int row, int col) {
-    return row * 9 + col;
   }
 }
 

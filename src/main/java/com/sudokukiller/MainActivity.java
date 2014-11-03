@@ -1,11 +1,11 @@
 package com.sudokukiller;
 
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.GridView;
-import android.support.v7.app.ActionBarActivity;
 
 public class MainActivity extends ActionBarActivity {
   private Sudoku sudoku = new Sudoku();
